@@ -2,6 +2,8 @@
 
 <div id="calendar"></div>
 
+<%= javascript_tag "let userEvents = #{@events.to_json}" %>
+
 <script>
 
   $(document).ready(function() {
@@ -35,23 +37,7 @@
       },
       editable: true,
       eventLimit: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'Meeting',
-          start: '2018-03-12T10:30:00',
-          end: '2018-03-12T11:50:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2018-03-12T12:00:00',
-          end: '2018-03-12T13:00:00'
-        },
-        {
-          title: 'Tennis',
-          start: '2018-03-16T19:00:00',
-          end: '2018-03-16T22:30:00'
-        }
-      ]
+      events: userEvents
     });
 
   });
