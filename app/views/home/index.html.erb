@@ -22,8 +22,28 @@
       selectable: true,
       selectHelper: true,
 
-      select: function(start, end) {
-        var title = prompt('Event Title:');
+      select: async function(start, end) {
+
+        const {value: formValues} = await swal({
+          title: 'New Event',
+          html:
+            '<span>Title: </span><input id="swal-input1" class="swal2-input">' +
+            '<span>Description: </span><input id="swal-input2" class="swal2-input">' +
+            '<span>Start time: </span><input id="swal-input3" type="time" class="swal2-input">' +
+            '<span>End time: </span><input id="swal-input4" type="time" class="swal2-input">',
+          focusConfirm: false,
+          preConfirm: () => {
+            return [
+              document.getElementById('swal-input1').value,
+              document.getElementById('swal-input2').value,
+              document.getElementById('swal-input3').value,
+              document.getElementById('swal-input4').value
+            ]
+          }
+        })
+
+        console.log(formValues);
+
         var eventData;
         if (title) {
           eventData = {
