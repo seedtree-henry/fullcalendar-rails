@@ -1,8 +1,12 @@
 # README
 
-- Event (Session) :
-    - title (required)
-    - description (optional)
-    - start
-    - end
-    
+1. Change the default date. (today)
+
+    - momentjs.com 
+
+2. Add Event model to Rails project and create the database.
+    - Event (Session) :
+        - title (required)
+        - description (optional)
+        - start (required)
+        - end (required)

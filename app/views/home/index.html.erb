@@ -6,13 +6,16 @@
 
   $(document).ready(function() {
 
+    // Find today to set default date of fullcaldendar
+    const today = moment().format().slice(0,10)
+
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
-      defaultDate: '2018-03-12',
+      defaultDate: today,
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectHelper: true,
